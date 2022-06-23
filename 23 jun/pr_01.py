@@ -1,7 +1,6 @@
-s="abccc"
+s="cbbcbca"
 s.lower()
 l=len(s)
-# print(l)
 t="abc"
 res,b,k="","",0
 for i in range(l+2):
@@ -22,8 +21,8 @@ for i in range(l+2):
         s=s1
         k+=1
         if len(s)==1:
-            # print(s)
             for j in range(k):
                 s=c+s[0:]
-                break
+            break
 print(s)
+print("Done")

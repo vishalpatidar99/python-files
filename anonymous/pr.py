@@ -5,6 +5,7 @@
 #     l.append(ele)
 # print(l)
 # l = [5, 10, 5,10,20, 10, 5]
+#Chocolate Program
 l=[5,10,5,5,20]
 count_5=0
 count_10=0

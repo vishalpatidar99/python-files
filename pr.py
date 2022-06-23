@@ -127,3 +127,8 @@
 #     i+=1
 #     t-=1
 # print(res)
+s="pain likes banana, same also likes banana"
+s=s[:29]+s[-10:-13:-1]+s[32:]
+# print(s[-10:-13:-1])
+# print(s[32:34])
+print(s)
