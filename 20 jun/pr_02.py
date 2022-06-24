@@ -4,9 +4,6 @@
 # Input : test_tuple = test_tuple = ((1, ‘Gfg’), (2, 3)), keys = [‘key’, ‘value’]
 # Output : [{‘key’: 1, ‘value’: ‘Gfg’}, {‘key’: 2, ‘value’: 3}]
 
-from numpy import append
-
-
 ip=((1, 'Gfg'), (2, 3))
 keys = ['key', 'value', 'id']
 res=[]
