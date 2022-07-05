@@ -4,10 +4,10 @@ stops=[['a', 'b', 6], ['a', 'c', 3], ['b', 'c', 1], ['c', 'b', 4], ['b', 'd', 2]
 ip=['a','d']
 related_stops=[]
 for i in range(1):
-    for j in i:
-        if j==ip[0]:
+    for j in range(len(stops[i])):
+        if stops[i][j]==ip[0]:
             related_stops.append(stops[i])
             # for k in stops:
             #     if k==related_stops[1]:
 
-# print(related_stops)
+print(related_stops)
