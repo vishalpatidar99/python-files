@@ -5,8 +5,6 @@ from django.utils import timezone
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from mysite.settings import MEDIA_ROOT, MEDIA_URL
-
 # Create your models here.
 class Question(models.Model):
     question_text=models.CharField(max_length=200)
@@ -53,7 +51,7 @@ class Pizzas(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=120)
-    members = models.ManyToManyField(Person, through="Membership")
+    members = models.ManyToManyField(Person, through="Membership", through_fields=('group', 'person'))
     def __str__(self):
         return self.name
 
@@ -267,6 +265,36 @@ class Registration(models.Model):
     email = models.EmailField(max_length=35, db_column='EMAIL', db_index=True, db_tablespace=True, help_text='abc@gmail.com', )
     address = models.CharField(max_length=25, verbose_name='Address_of_user', db_column='Address', null=True)
 
-# class Filing(models.Model):
-#     file = models.FileField(upload_to='media/', storage=MEDIA_URL)
-#     # f = models.FieldFile()
+class Practice(models.Model):
+    n = models.BigIntegerField()
+
+class Car(models.Model):
+    manufacturer = models.ForeignKey('Manufacturer', on_delete=models.RESTRICT)
+    name = models.CharField(max_length=25)
+    date_of_manufacturing = models.DateField()
+
+class Manufacturer(models.Model):
+    name = models.CharField(max_length=25)
+
+class Artist(models.Model):
+    name = models.CharField(max_length=25)
+
+class Album(models.Model):
+    artist = models.ForeignKey(Artist,on_delete=models.CASCADE)
+    name = models.CharField(max_length=25)
+
+class Song(models.Model):
+    artist = models.ForeignKey(Artist,on_delete=models.CASCADE)
+    Album = models.ForeignKey(Album,on_delete=models.RESTRICT)
+    name = models.CharField(max_length=25)
+
+class Filing3(models.Model):
+    file = models.FileField(upload_to='media', blank=True)
+
+class Practice2(models.Model):
+    first_name = models.CharField(max_length=35, unique=True)
+    last_name = models.CharField(max_length=35, unique=True)
+
+    class Meta:
+        permissions = [('can_deliver_pizzas', 'can diliver pizzas')]
+        unique_together = ['first_name','last_name']
