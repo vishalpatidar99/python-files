@@ -325,3 +325,23 @@ class Entry(models.Model):
 
     def __str__(self):
         return self.headline
+
+class Dog(models.Model):
+    name = models.CharField(max_length=200)
+    data = models.JSONField(null=True)
+
+    def __str__(self):
+        return self.name
+
+class Some(models.Model):
+    name = models.CharField(max_length=35)
+    age=models.IntegerField()
+
+class Other(models.Model):
+    name=models.CharField(max_length=35)
+    age=models.IntegerField()
+
+class EntryDetail(models.Model):
+    entry = models.OneToOneField(Entry, on_delete=models.CASCADE)
+    details = models.TextField()
+
