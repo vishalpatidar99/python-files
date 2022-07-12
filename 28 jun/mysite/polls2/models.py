@@ -1,6 +1,7 @@
 from locale import T_FMT, T_FMT_AMPM
 from django.db import models
 from datetime import date
+import time
 
 # Create your models here.
 
@@ -63,4 +64,3 @@ class Chapter(models.Model):
 class Book2(models.Model):
     title = models.CharField(max_length=256)
     chapters = models.ManyToManyField(Chapter)
-

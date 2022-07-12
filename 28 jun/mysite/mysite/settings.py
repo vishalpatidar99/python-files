@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'polls',
     'mysite',
     'polls2',
+    'task',
 ]
 
 MIDDLEWARE = [
