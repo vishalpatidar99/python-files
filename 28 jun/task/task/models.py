@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
-class Interviewer(models.Model):
+class User(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=12)
@@ -104,7 +104,7 @@ class InterviewUpdate(models.Model):
         FINAL = 'final', _('Final Round')
 
     application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='interview_update')
-    interviewer = models.ManyToManyField(Interviewer)
+    interviewer = models.ManyToManyField(User)
     interview_stage = models.CharField(max_length=6, choices=InterviewRound.choices)
     remark = models.TextField()
     datetime = models.DateTimeField(auto_now_add=True)
