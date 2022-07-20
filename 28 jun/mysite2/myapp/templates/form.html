@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="#", method="post">
-        {% csrf_token %}
-        <h2>Candidate Registration Form</h2>
-        {{form.as_p}}
-        <!-- <hr>
-        <h2>Opening Job Form</h2>
-        {{form2.as_p}}
-        <hr>
-        <h2>Application Form</h2>
-        {{form3.as_p}}
-        <hr>
-        <h2>candidate's Qualification Form</h2>
-        {{form4.as_p}}
-        <hr>
-        <h2>Interview Update Form</h2>
-        {{form5.as_p}} -->
-        <p><input type="submit", value="Save"></p>
-    </form>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="#" , method="post">
+            <font color="blue">{{output}}</font>
+            {% csrf_token %}
+            <h2>Candidate Registration Form</h2>
+            {{form.as_p}}
+            <p><input type="submit" , value="Save"></p>
+        </form>
+    </body>
