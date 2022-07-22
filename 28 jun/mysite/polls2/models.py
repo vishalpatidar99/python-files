@@ -1,6 +1,8 @@
+from random import choices
 from django.db import models
 from datetime import date
 import time
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -79,4 +81,16 @@ class BookManager(models.Manager):
 
 class Book4(models.Model):
     title = models.CharField(max_length=35)
-    objects = BookManager()
+    objects = BookManager() 
+
+class User(models.Model):
+    class Gender(models.TextChoices):
+        MALE = 'm', _('Male')
+        FEMALE = 'f', _('Female')
+        OTHER = 'o', _('Other')
+
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=12)
+    resume = models.FileField(upload_to='media')
+    gender = models.CharField(max_length=1, choices=Gender.choices)

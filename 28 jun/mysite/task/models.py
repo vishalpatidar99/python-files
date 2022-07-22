@@ -104,3 +104,4 @@ class InterviewUpdate(models.Model):
 
     def __repr__(self):
         return '<InterviewUpdate %s>'% self.application
+
