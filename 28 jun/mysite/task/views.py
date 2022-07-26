@@ -8,7 +8,8 @@ from django.shortcuts import get_object_or_404
 from .forms import*
 from .somewhere import handle_uploaded_file
 from django.views.generic.edit import FormView
-
+from django.views import View 
+from django.views.generic import *
 # Create your views here.
 def current_datetime(request):
     now = datetime.datetime.now()
@@ -93,3 +94,6 @@ class FileFieldFormView(FormView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
+class My_View(TemplateView):
+    template_name = 'view1.html'

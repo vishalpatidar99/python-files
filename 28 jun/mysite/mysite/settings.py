@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'polls2',
     'task',
     'forms',
+    'polls3',
 ]
 
 MIDDLEWARE = [

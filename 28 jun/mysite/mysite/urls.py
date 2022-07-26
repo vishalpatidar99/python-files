@@ -22,4 +22,5 @@ urlpatterns = [
     path('polls2/', include('polls2.urls')),
     path('forms/', include('forms.urls', namespace='forms')),
     path('task/', include('task.urls', namespace='task')),
+    path('polls3/', include('polls3.urls', namespace='polls3')),
 ]

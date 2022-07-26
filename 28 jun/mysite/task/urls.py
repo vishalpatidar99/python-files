@@ -16,4 +16,5 @@ urlpatterns = [
     path('file/', views.fileupload, name='file'),
     path('file2/', views.fileupload2, name='file2'),
     path('file3/', views.FileFieldFormView.as_view(), name='file3'),
+    path('view1/', views.My_View.as_view(), name='view1'),
 ]   

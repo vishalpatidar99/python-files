@@ -1,4 +1,3 @@
-from random import choices
 from django.db import models
 from datetime import date
 import time
@@ -92,5 +91,21 @@ class User(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=12)
-    resume = models.FileField(upload_to='media')
+    # resume = models.FileField(upload_to='media')
     gender = models.CharField(max_length=1, choices=Gender.choices)
+
+class Book5(models.Model):
+    title = models.CharField(max_length=50)
+    date = models.DateField()
+
+class Publisher(models.Model):
+    name = models.CharField(max_length=35)
+    address = models.CharField(max_length=50)
+    city = models.CharField(max_length=35)
+    state = models.CharField(max_length=35)
+
+    class Meta:
+        ordering = ['-name']
+
+    def __str__(self):
+        return self.name

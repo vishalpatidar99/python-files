@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
-from django import forms
 # class NameForm(forms.Form):
 #     your_name = forms.CharField(label="Name",max_length=100)
     
@@ -15,3 +14,18 @@ class BlogForm(ModelForm):
     class Meta:
         model = Blog
         fields = ['name', 'tagline']
+
+class BookForm(ModelForm):
+    class Meta:
+        model = Book5
+        fields = '__all__'
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+class PublisherForm(ModelForm):
+    class Meta:
+        model = Publisher
+        fields = '__all__'

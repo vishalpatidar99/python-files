@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import*
-from django.core.mail import send_mail
+from django.views.generic import*
+from django.views.generic.edit import*
 # Create your views here.
 def articles_2003(request):
     return HttpResponse("This is articles 2003")
@@ -48,3 +49,56 @@ def blogform(request):
         return render(request, 'registration.html', {'form':form})
     else:
         return HttpResponse("Thanks")
+        
+def myview(request):
+    form = BookForm()
+    if request.method=='POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            date = form.cleaned_data['date']
+            p = Book5(title=title,date=date)
+            p.save()    
+            return HttpResponse('Success')
+    else:
+        form = BookForm()
+    return render(request,'bookform.html',{'form':form})
+
+class UserView(CreateView):
+    model = User
+    fields = '__all__'
+    success_url = '/polls2/success/'
+
+def success(request):
+    return HttpResponse('Successfull')
+
+# class PublisherCreateView(CreateView):
+#     queryset = Publisher.objects.all()
+#     context_object_name ={'objects_list':queryset}
+#     model = Publisher
+#     fields = '__all__'
+#     success_url = '/polls2/success/'
+
+# class PublisherDetailView(DetailView):
+#     model = Publisher
+#     fields = '__all__'
+
+class PublisherRegisterView(View):
+    def get(self, request):
+        form = PublisherForm()
+        return render(request,'publisher_form.html',{'form':form})
+
+    def post(self, request):
+        form = PublisherForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            address = form.cleaned_data['address']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            Publisher.objects.create(name=name,address=address,city=city,state=state)
+            return render(request,'publisher_form.html',{'form':form})
+
+class PublishersListView(View):
+    def get(self, request):
+        data = Publisher.objects.all().order_by('id')
+        return render(request, 'publisher_details.html',{'data':data})

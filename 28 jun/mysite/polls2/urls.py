@@ -11,5 +11,11 @@ urlpatterns = [
     re_path(r'^articles/(?P<year>[0-9]{4})/$', views.year_archives),
     path('', views.blogform),
     path('blogform/', views.blogform),
-    # path('get_mail/', views.get_name),
+    path('view1/', views.myview, name='view1'),
+    path('userview/', views.UserView.as_view(), name='view2'),
+    path('success/', views.success, name='success'),
+    # path('publisher1/', views.PublisherCreateView.as_view(), name='publisher1'),
+    # path('publisher2/<int:pk>/',views.PublisherDetailView.as_view(), name='publisher2'),
+    path('publisher1/',views.PublisherRegisterView.as_view(), name='publisherregister'),
+    path('publisher2/',views.PublishersListView.as_view(), name='publisherlist'),
 ]
