@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message cryptocurrency{
+    optional string name = 1;
+}
+
+message market_price{
+   optional float max_price = 1;
+   optional float min_price = 2;
+   optional float avg_price = 3;
+}
+
+service GExchange{
+   rpc get_price (cryptocurrency) returns (market_price) {};
+}
