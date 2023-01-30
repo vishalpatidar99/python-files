@@ -1,5 +1,5 @@
 # s="abbbcccdaa"
-# output a1b2c3d1a2
+# output a1b3c3d1a2
 
 s="abbbcccdaa"
 res=''
